@@ -5,15 +5,29 @@ class Story extends React.Component {
     super(props);
     this.state = {
       id: this.props.id,
-      title: 'When should I go to sleep',
-      domain: 'alexisramirez.net',
+      title: '',
+      domain: '',
       url: '',
-      score: '12',
-      by: 'alexis',
-      age: '2',
-      num_of_comments: '300',
+      score: '',
+      by: '',
+      age: '',
+      num_of_comments: '',
       link_to_comments: '',
     }
+  }
+  extractHostname(url) {
+    var hostname;
+    //find & remove protocol (http, ftp, etc.) and get hostname
+    if (typeof url !== 'string') {
+      return 'news.ycombinator.com'
+    }
+    if (url.indexOf("//") > -1) {
+        hostname = url.split('/')[2];
+    }
+    else {
+        hostname = url.split('/')[0];
+    }
+    return hostname;
   }
 
   componentDidMount() {
@@ -22,11 +36,11 @@ class Story extends React.Component {
       .then(data => {
         this.setState({
           title: data.title,
-          domain: '',
+          domain: this.extractHostname(data.url),
           url: data.url,
           score: data.score,
           by: data.by,
-          age: data.time,
+          age: Math.floor(((Date.now()/1000 - data.time) / 60) / 60),
           num_of_comments: data.descendants
         });
       });

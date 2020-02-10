@@ -4,7 +4,7 @@ class Story extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      id: '',
+      id: this.props.id,
       title: 'When should I go to sleep',
       domain: 'alexisramirez.net',
       url: '',
@@ -15,6 +15,22 @@ class Story extends React.Component {
       link_to_comments: '',
     }
   }
+
+  componentDidMount() {
+    fetch('https://hacker-news.firebaseio.com/v0/item/' + this.state.id + '.json')
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          title: data.title,
+          domain: '',
+          url: data.url,
+          score: data.score,
+          by: data.by,
+          age: data.time,
+          num_of_comments: data.descendants
+        });
+      });
+  }
   render() {
     return (
       <div className="card my-2">
@@ -24,7 +40,7 @@ class Story extends React.Component {
             &nbsp;({this.state.domain})
           </div>
           <div className="card-text text-muted">
-            {this.state.points} points
+            {this.state.score} points
             by {this.state.by}
             &nbsp;{this.state.age} hours ago |
             &nbsp;{this.state.num_of_comments} comments

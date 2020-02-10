@@ -3,10 +3,10 @@ import React from 'react';
 class NavBar extends React.Component {
   render() {
     return (
-      <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">HN React</a>
+      <nav className="navbar navbar-expand-md navbar-dark bg-dark">
+        <a className="navbar-brand" href="#">HN React</a>
         <button
-          class="navbar-toggler"
+          className="navbar-toggler"
           type="button"
           data-toggle="collapse"
           data-target="#navbarText"
@@ -14,23 +14,23 @@ class NavBar extends React.Component {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span class="navbar-toggler-icon"></span>
+          <span className="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarText">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Top</a>
+        <div className="collapse navbar-collapse" id="navbarText">
+          <ul className="navbar-nav mr-auto">
+            <li className="nav-item active">
+              <a className="nav-link" href="#">Top</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">New</a>
+            <li className="nav-item">
+              <a className="nav-link" href="#">New</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Ask</a>
+            <li className="nav-item">
+              <a className="nav-link" href="#">Ask</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Jobs</a>
+            <li className="nav-item">
+              <a className="nav-link" href="#">Jobs</a>
             </li>
-            <li class="nav-item">
+            <li className="nav-item">
               <a class="nav-link" href="#">Show</a>
             </li>
           </ul>

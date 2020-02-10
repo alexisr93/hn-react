@@ -6,7 +6,7 @@ import MainBody from './MainBody';
 function App() {
   return (
     <div className="App">
-      <div class="container-fluid">
+      <div>
         <NavBar />
         <MainBody />
       </div>

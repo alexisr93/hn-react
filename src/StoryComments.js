@@ -7,6 +7,7 @@ class StoryComments extends React.Component {
       comments: [],
     }
   }
+  
   render() {
     return (
       <div>

@@ -15,9 +15,9 @@ class Story extends React.Component {
       link_to_comments: '',
     }
   }
+
   extractHostname(url) {
     var hostname;
-    //find & remove protocol (http, ftp, etc.) and get hostname
     if (typeof url !== 'string') {
       return 'news.ycombinator.com'
     }
@@ -45,6 +45,7 @@ class Story extends React.Component {
         });
       });
   }
+
   render() {
     return (
       <div className="card my-2">

@@ -50,8 +50,8 @@ class Story extends React.Component {
       <div className="card my-2">
         <div className="card-body">
           <div className="card-subtitle">
-            {this.state.title}
-            &nbsp;({this.state.domain})
+            {this.state.title}&nbsp;
+            <a href={this.state.domain}>({this.state.domain})</a>
           </div>
           <div className="card-text text-muted">
             {this.state.score} points

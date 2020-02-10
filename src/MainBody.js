@@ -6,6 +6,25 @@ class MainBody extends React.Component {
     return (
       <div className="container-fluid">
         <Story />
+        <Story />
+        <Story />
+        <Story />
+        <Story />
+        <Story />
+        <Story />
+        <Story />
+        <Story />
+        <Story />
+        <Story />
+        <Story />
+        <Story />
+        <Story />
+        <Story />
+        <Story />
+        <Story />
+        <Story />
+        <Story />
+        <Story />
       </div>
     );
   }

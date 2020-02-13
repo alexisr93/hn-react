@@ -14,7 +14,7 @@ class MainBody extends React.Component {
   fetchData() {
     var to_get = '';
 
-    switch(this.props.currentNav) {
+    switch(this.state.current_nav) {
       case 'Top':
         to_get = 'topstories';
         break;
@@ -42,18 +42,27 @@ class MainBody extends React.Component {
         });
       });
   }
-  
+
   componentDidMount() {
     this.fetchData();
   }
 
-  componentDidUpdate() {
-    this.fetchData();
+  componentDidUpdate(prevProps) {
+    if (this.props !== prevProps) {
+      this.setState({
+        current_nav: this.props.currentNav,
+        current_page: this.props.currentPage
+      }, () => this.fetchData());
+    }
+
   }
 
   render() {
     var list_of_stories = (
-      this.state.stories.slice((this.state.current_page * 1) - 1, this.state.current_page * 20).map(story =>
+      this.state.stories.slice(
+        ((this.state.current_page - 1) * 20) + parseInt(this.state.current_page) - 1,
+        (this.state.current_page * 20) + parseInt(this.state.current_page) - 1)
+        .map(story =>
         <Story key={story} id={story}></Story>
       )
     )

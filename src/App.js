@@ -11,6 +11,7 @@ class App extends React.Component {
       current_page: 1
     }
     this.handleChangeNav = this.handleChangeNav.bind(this);
+    this.handleClickPage = this.handleClickPage.bind(this);
   }
 
   handleChangeNav(value) {
@@ -20,9 +21,9 @@ class App extends React.Component {
     });
   }
 
-  handleClickPage(page) {
+  handleClickPage(event) {
     this.setState({
-      current_page: page
+      current_page: event.target.id
     });
   }
 
@@ -39,6 +40,8 @@ class App extends React.Component {
                   <a
                     className="page-link text-dark"
                     href="#"
+                    id={this.state.currentPage - 1}
+                    onClick={this.handleClickPage}
                   >
                   Previous
                   </a>
@@ -47,6 +50,8 @@ class App extends React.Component {
                   <a
                     className="page-link text-dark"
                     href="#"
+                    id="1"
+                    onClick={this.handleClickPage}
                   >
                   1
                   </a>
@@ -55,6 +60,8 @@ class App extends React.Component {
                   <a
                     className="page-link text-dark"
                     href="#"
+                    id="2"
+                    onClick={this.handleClickPage}
                   >
                   2
                   </a>
@@ -63,6 +70,8 @@ class App extends React.Component {
                   <a
                     className="page-link text-dark"
                     href="#"
+                    id="3"
+                    onClick={this.handleClickPage}
                   >
                   3
                   </a>
@@ -71,14 +80,18 @@ class App extends React.Component {
                   <a
                     className="page-link text-dark"
                     href="#"
+                    id="4"
+                    onClick={this.handleClickPage}
                   >
-                  6
+                  4
                   </a>
                 </li>
                 <li className="page-item">
                   <a
                     className="page-link text-dark"
                     href="#"
+                    id="5"
+                    onClick={this.handleClickPage}
                   >
                   5
                   </a>
@@ -87,6 +100,8 @@ class App extends React.Component {
                   <a
                     className="page-link text-dark"
                     href="#"
+                    id="6"
+                    onClick={this.handleClickPage}
                   >
                   6
                   </a>
@@ -95,6 +110,8 @@ class App extends React.Component {
                   <a
                     className="page-link text-dark"
                     href="#"
+                    id={this.state.current_page + 1}
+                    onClick={this.handleClickPage}
                   >
                   Next
                   </a>

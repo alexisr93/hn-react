@@ -12,6 +12,8 @@ class App extends React.Component {
     }
     this.handleChangeNav = this.handleChangeNav.bind(this);
     this.handleClickPage = this.handleClickPage.bind(this);
+    this.handleClickNext = this.handleClickNext.bind(this);
+    this.handleClickPrevious = this.handleClickPrevious.bind(this);
   }
 
   handleChangeNav(value) {
@@ -24,6 +26,18 @@ class App extends React.Component {
   handleClickPage(event) {
     this.setState({
       current_page: event.target.id
+    });
+  }
+
+  handleClickPrevious() {
+    this.setState({
+      current_page: this.state.current_page - 1
+    });
+  }
+
+  handleClickNext() {
+    this.setState({
+      current_page: this.state.current_page + 1
     });
   }
 
@@ -40,8 +54,7 @@ class App extends React.Component {
                   <a
                     className="page-link text-dark"
                     href="#"
-                    id={this.state.currentPage - 1}
-                    onClick={this.handleClickPage}
+                    onClick={this.handleClickPrevious}
                   >
                   Previous
                   </a>
@@ -110,8 +123,7 @@ class App extends React.Component {
                   <a
                     className="page-link text-dark"
                     href="#"
-                    id={this.state.current_page + 1}
-                    onClick={this.handleClickPage}
+                    onClick={this.handleClickNext}
                   >
                   Next
                   </a>

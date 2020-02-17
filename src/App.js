@@ -11,9 +11,10 @@ class App extends React.Component {
       current_page: 1
     }
     this.handleChangeNav = this.handleChangeNav.bind(this);
-    this.handleClickPage = this.handleClickPage.bind(this);
-    this.handleClickNext = this.handleClickNext.bind(this);
+    this.handleClickFirst = this.handleClickFirst.bind(this);
     this.handleClickPrevious = this.handleClickPrevious.bind(this);
+    this.handleClickNext = this.handleClickNext.bind(this);
+    this.handleClickLast = this.handleClickLast.bind(this);
   }
 
   handleChangeNav(value) {
@@ -23,21 +24,31 @@ class App extends React.Component {
     });
   }
 
-  handleClickPage(event) {
+  handleClickFirst() {
     this.setState({
-      current_page: event.target.id
+      current_page: 1
     });
   }
 
   handleClickPrevious() {
-    this.setState({
-      current_page: this.state.current_page - 1
-    });
+    if (this.state.current_page - 1 > 1) {
+      this.setState({
+        current_page: this.state.current_page - 1
+      });
+    }
   }
 
   handleClickNext() {
+    if (this.state.current_page + 1 < 23) {
+      this.setState({
+        current_page: this.state.current_page + 1
+      });
+    }
+  }
+
+  handleClickLast() {
     this.setState({
-      current_page: this.state.current_page + 1
+      current_page: 23
     });
   }
 
@@ -54,9 +65,9 @@ class App extends React.Component {
                   <a
                     className="page-link text-dark"
                     href="#"
-                    onClick={this.handleClickPrevious}
+                    onClick={this.handleClickFirst}
                   >
-                  Previous
+                  First
                   </a>
                 </li>
                 <li className="page-item">
@@ -64,49 +75,17 @@ class App extends React.Component {
                     className="page-link text-dark"
                     href="#"
                     id="1"
-                    onClick={this.handleClickPage}
+                    onClick={this.handleClickPrevious}
                   >
-                  1
+                  Previous
                   </a>
                 </li>
-                <li className="page-item">
+                <li className="page-item active">
                   <a
-                    className="page-link text-dark"
+                    className="page-link bg-secondary border-secondary"
                     href="#"
-                    id="2"
-                    onClick={this.handleClickPage}
                   >
-                  2
-                  </a>
-                </li>
-                <li className="page-item">
-                  <a
-                    className="page-link text-dark"
-                    href="#"
-                    id="3"
-                    onClick={this.handleClickPage}
-                  >
-                  3
-                  </a>
-                </li>
-                <li className="page-item">
-                  <a
-                    className="page-link text-dark"
-                    href="#"
-                    id="4"
-                    onClick={this.handleClickPage}
-                  >
-                  4
-                  </a>
-                </li>
-                <li className="page-item">
-                  <a
-                    className="page-link text-dark"
-                    href="#"
-                    id="5"
-                    onClick={this.handleClickPage}
-                  >
-                  5
+                  {this.state.current_page}
                   </a>
                 </li>
                 <li className="page-item">
@@ -114,18 +93,18 @@ class App extends React.Component {
                     className="page-link text-dark"
                     href="#"
                     id="6"
-                    onClick={this.handleClickPage}
+                    onClick={this.handleClickNext}
                   >
-                  6
+                  Next
                   </a>
                 </li>
                 <li className="page-item">
                   <a
                     className="page-link text-dark"
                     href="#"
-                    onClick={this.handleClickNext}
+                    onClick={this.handleClickLast}
                   >
-                  Next
+                  Last
                   </a>
                 </li>
               </ul>

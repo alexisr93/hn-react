@@ -1,4 +1,10 @@
 import React from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  NabLink
+} from 'react-router-dom';
 import './App.css';
 import NavBar from './NavBar.js';
 import MainBody from './MainBody';
@@ -101,7 +107,21 @@ class PageBottomNav extends React.Component {
     );
   }
 }
-
+class MainBodySwitch extends React.Component {
+  render() {
+    return (
+      <div>
+        <Switch>
+          <Route path="/top" component={MainBody} />
+          <Route path="/new" component={MainBody} />
+          <Route path="/ask" component={MainBody} />
+          <Route path="/jobs" component={MainBody} />
+          <Route path="/show" component={MainBody} />
+        </Switch>
+      </div>
+    )
+  }
+}
 class App extends React.Component {
   constructor(props) {
     super(props);

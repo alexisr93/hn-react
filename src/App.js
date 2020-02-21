@@ -3,7 +3,6 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  NabLink
 } from 'react-router-dom';
 import './App.css';
 import NavBar from './NavBar.js';
@@ -108,20 +107,34 @@ class PageBottomNav extends React.Component {
   }
 }
 class MainBodySwitch extends React.Component {
+  constructor(props) {
+    super(props);
+  }
   render() {
     return (
       <div>
         <Switch>
-          <Route path="/top" component={MainBody} />
-          <Route path="/new" component={MainBody} />
-          <Route path="/ask" component={MainBody} />
-          <Route path="/jobs" component={MainBody} />
-          <Route path="/show" component={MainBody} />
+          <Route path="/top">
+            <MainBody currentPage={this.props.currentPage} nav="top"/>
+          </Route>
+          <Route path="/new">
+            <MainBody currentPage={this.props.currentPage} nav="new"/>
+          </Route>
+          <Route path="/ask">
+            <MainBody currentPage={this.props.currentPage} nav="ask"/>
+          </Route>
+          <Route path="/jobs">
+            <MainBody currentPage={this.props.currentPage} nav="jobs"/>
+          </Route>
+          <Route path="/show">
+            <MainBody currentPage={this.props.currentPage} nav="show"/>
+          </Route>
         </Switch>
       </div>
     )
   }
 }
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -129,15 +142,7 @@ class App extends React.Component {
       current_nav: 'topstories',
       current_page: 1
     }
-    this.handleChangeNav = this.handleChangeNav.bind(this)
     this.handleChangePage = this.handleChangePage.bind(this)
-  }
-
-  handleChangeNav(value) {
-    this.setState({
-      current_nav: value,
-      current_page: 1
-    });
   }
 
   handleChangePage(value) {
@@ -150,9 +155,11 @@ class App extends React.Component {
     return (
       <div className="App">
         <div>
-          <NavBar currentNav={this.state.current_nav} changeNav={this.handleChangeNav} />
-          <MainBody currentNav={this.state.current_nav} currentPage={this.state.current_page} />
-          <PageBottomNav currentPage={this.state.current_page} changePage={this.handleChangePage}/>
+          <Router>
+            <NavBar />
+            <MainBodySwitch currentPage={this.state.current_page}></MainBodySwitch>
+            <PageBottomNav currentPage={this.state.current_page} changePage={this.handleChangePage}/>
+          </Router>
         </div>
       </div>
     );

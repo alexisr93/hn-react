@@ -5,29 +5,30 @@ class MainBody extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      current_nav: this.props.currentNav,
+      current_nav: this.props.nav,
       current_page: this.props.currentPage,
       stories: [],
     }
+    console.log(this.state.current_nav);
   }
 
   fetchData() {
     var to_get = '';
 
     switch(this.state.current_nav) {
-      case 'Top':
+      case 'top':
         to_get = 'topstories';
         break;
-      case 'New':
+      case 'new':
         to_get = 'newstories';
         break;
-      case 'Ask':
+      case 'ask':
         to_get = 'askstories';
         break;
-      case 'Jobs':
+      case 'jobs':
         to_get = 'jobstories';
         break;
-      case 'Show':
+      case 'show':
         to_get = 'showstories';
         break;
       default:
@@ -50,8 +51,8 @@ class MainBody extends React.Component {
   componentDidUpdate(prevProps) {
     if (this.props !== prevProps) {
       this.setState({
-        current_nav: this.props.currentNav,
-        current_page: this.props.currentPage
+        current_nav: this.props.nav,
+        current_page: this.props.currentPage,
       }, () => this.fetchData());
     }
 

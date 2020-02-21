@@ -9,7 +9,6 @@ class MainBody extends React.Component {
       current_page: this.props.currentPage,
       stories: [],
     }
-    console.log(this.state.current_nav);
   }
 
   fetchData() {

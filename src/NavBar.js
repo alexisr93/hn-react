@@ -1,4 +1,7 @@
 import React from 'react';
+import {
+  NavLink
+} from 'react-router-dom';
 
 class NavBar extends React.Component {
   constructor(props) {
@@ -6,12 +9,8 @@ class NavBar extends React.Component {
     this.state = {
       current_nav: this.props.current_nav
     }
-    this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick(event) {
-    this.props.changeNav(event.target.id);
-  }
   render() {
     return (
       <nav className="navbar navbar-expand-md navbar-dark bg-dark">
@@ -29,20 +28,20 @@ class NavBar extends React.Component {
         </button>
         <div className="collapse navbar-collapse" id="navbarText">
           <ul className="navbar-nav mr-auto">
-            <li className="nav-item active">
-              <a className="nav-link" href="#" id="Top" onClick={this.handleClick}>Top</a>
+            <li className="nav-link">
+              <NavLink to="/top">Top</NavLink>
             </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#" id="New" onClick={this.handleClick}>New</a>
+            <li className="nav-link">
+              <NavLink to="/new">New</NavLink>
             </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#" id="Ask" onClick={this.handleClick}>Ask</a>
+            <li className="nav-link">
+              <NavLink to="/ask">Ask</NavLink>
             </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#" id="Jobs" onClick={this.handleClick}>Jobs</a>
+            <li className="nav-link">
+              <NavLink to="/jobs">Jobs</NavLink>
             </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#" id="Show" onClick={this.handleClick}>Show</a>
+            <li className="nav-link">
+              <NavLink to="/show">Show</NavLink>
             </li>
           </ul>
         </div>

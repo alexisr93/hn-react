@@ -1,4 +1,7 @@
 import React from 'react';
+import {
+  NavLink,
+} from 'react-router-dom';
 
 class Story extends React.Component {
   constructor(props) {
@@ -56,7 +59,7 @@ class Story extends React.Component {
           </div>
           <div className="card-text text-muted">
             {this.state.score} points
-            by {this.state.by}
+            by <NavLink to={'/user/' + this.state.by}>{this.state.by}</NavLink>
             &nbsp;{this.state.age} hours ago |
             &nbsp;{this.state.num_of_comments} comments
           </div>

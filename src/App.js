@@ -7,105 +7,9 @@ import {
 import './App.css';
 import NavBar from './NavBar.js';
 import MainBody from './MainBody';
+import UserProfile from './UserProfile';
+import PageBottomNav from './PageBottomNav';
 
-class PageBottomNav extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      current_page: this.props.currentPage,
-    }
-
-    this.handleClickFirst = this.handleClickFirst.bind(this);
-    this.handleClickPrevious = this.handleClickPrevious.bind(this);
-    this.handleClickNext = this.handleClickNext.bind(this);
-    this.handleClickLast = this.handleClickLast.bind(this);
-  }
-
-  handleClickFirst() {
-    this.setState({
-      current_page: 1
-    }, () => this.props.changePage(this.state.current_page));
-  }
-
-  handleClickPrevious() {
-    if (this.state.current_page - 1 > 1) {
-      this.setState({
-        current_page: this.state.current_page - 1
-      }, () => this.props.changePage(this.state.current_page));
-    }
-  }
-
-  handleClickNext() {
-    if (this.state.current_page + 1 < 23) {
-      this.setState({
-        current_page: this.state.current_page + 1
-      }, () => this.props.changePage(this.state.current_page));
-    }
-  }
-
-  handleClickLast() {
-    this.setState({
-      current_page: 23
-    }, () => this.props.changePage(this.state.current_page));
-  }
-
-  render() {
-    return (
-      <div className="container-fluid">
-        <nav aria-label="Page navigation temp">
-          <ul className="pagination">
-            <li className="page-item">
-              <a
-                className="page-link text-dark"
-                href="#"
-                onClick={this.handleClickFirst}
-              >
-              First
-              </a>
-            </li>
-            <li className="page-item">
-              <a
-                className="page-link text-dark"
-                href="#"
-                id="1"
-                onClick={this.handleClickPrevious}
-              >
-              Previous
-              </a>
-            </li>
-            <li className="page-item active">
-              <a
-                className="page-link bg-secondary border-secondary"
-                href="#"
-              >
-              {this.state.current_page}
-              </a>
-            </li>
-            <li className="page-item">
-              <a
-                className="page-link text-dark"
-                href="#"
-                id="6"
-                onClick={this.handleClickNext}
-              >
-              Next
-              </a>
-            </li>
-            <li className="page-item">
-              <a
-                className="page-link text-dark"
-                href="#"
-                onClick={this.handleClickLast}
-              >
-              Last
-              </a>
-            </li>
-          </ul>
-        </nav>
-      </div>
-    );
-  }
-}
 class MainBodySwitch extends React.Component {
   constructor(props) {
     super(props);
@@ -114,6 +18,9 @@ class MainBodySwitch extends React.Component {
     return (
       <div>
         <Switch>
+          <Route exact path="/">
+            <MainBody currentPage={this.props.currentPage} nav="top"/>
+          </Route>
           <Route path="/top">
             <MainBody currentPage={this.props.currentPage} nav="top"/>
           </Route>
@@ -128,6 +35,9 @@ class MainBodySwitch extends React.Component {
           </Route>
           <Route path="/show">
             <MainBody currentPage={this.props.currentPage} nav="show"/>
+          </Route>
+          <Route path="/user">
+            <UserProfile />
           </Route>
         </Switch>
       </div>

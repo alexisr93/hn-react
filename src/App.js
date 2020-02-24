@@ -21,21 +21,45 @@ class MainBodySwitch extends React.Component {
         <Switch>
           <Route exact path="/">
             <MainBody currentPage={this.props.currentPage} nav="top"/>
+            <PageBottomNav
+              currentPage={this.props.currentPage}
+              changePage={this.props.changePage}
+            />
           </Route>
           <Route path="/top">
             <MainBody currentPage={this.props.currentPage} nav="top"/>
+            <PageBottomNav
+              currentPage={this.props.currentPage}
+              changePage={this.props.changePage}
+            />
           </Route>
           <Route path="/new">
             <MainBody currentPage={this.props.currentPage} nav="new"/>
+            <PageBottomNav
+              currentPage={this.props.currentPage}
+              changePage={this.props.changePage}
+            />
           </Route>
           <Route path="/ask">
             <MainBody currentPage={this.props.currentPage} nav="ask"/>
+            <PageBottomNav
+              currentPage={this.props.currentPage}
+              changePage={this.props.changePage}
+            />
           </Route>
           <Route path="/jobs">
             <MainBody currentPage={this.props.currentPage} nav="jobs"/>
+            <PageBottomNav
+              currentPage={this.props.currentPage}
+              changePage={this.props.changePage}
+            />
           </Route>
           <Route path="/show">
             <MainBody currentPage={this.props.currentPage} nav="show"/>
+            <PageBottomNav
+              currentPage={this.props.currentPage}
+              changePage={this.props.changePage}
+            />
           </Route>
           <Route path="/user">
             <UserProfile />
@@ -67,8 +91,10 @@ class App extends React.Component {
         <div>
           <Router>
             <NavBar />
-            <MainBodySwitch currentPage={this.state.current_page}></MainBodySwitch>
-            <PageBottomNav currentPage={this.state.current_page} changePage={this.handleChangePage}/>
+            <MainBodySwitch
+              currentPage={this.state.current_page}
+              changePage={this.handleChangePage}>
+            </MainBodySwitch>
           </Router>
         </div>
       </div>

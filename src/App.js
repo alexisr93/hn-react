@@ -14,6 +14,7 @@ class MainBodySwitch extends React.Component {
   constructor(props) {
     super(props);
   }
+
   render() {
     return (
       <div>
@@ -49,7 +50,6 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      current_nav: 'topstories',
       current_page: 1
     }
     this.handleChangePage = this.handleChangePage.bind(this)

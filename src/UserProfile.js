@@ -1,4 +1,7 @@
 import React from 'react';
+import {
+  NavLink,
+} from 'react-router-dom';
 
 class UserProfile extends React.Component {
   constructor(props) {
@@ -40,7 +43,7 @@ class UserProfile extends React.Component {
               created: {this.state.created}<br/>
               karma: {this.state.karma}<br/>
               about: {this.state.about}<br/>
-              <a href="#">submissions</a>
+              <NavLink to={'/' + this.state.id}>submissions</NavLink>
             </div>
           </div>
         </div>

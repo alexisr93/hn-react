@@ -55,13 +55,13 @@ class Story extends React.Component {
         <div className="card-body">
           <div className="card-subtitle">
             <a href={this.state.url}>{this.state.title}&nbsp;</a>
-            <a href={this.state.domain} className="text-muted">({this.state.domain})</a>
+            <NavLink to={'/' + this.state.domain}>({this.state.domain})</NavLink>
           </div>
           <div className="card-text text-muted">
             {this.state.score} points
             by <NavLink to={'/user/' + this.state.by}>{this.state.by}</NavLink>
             &nbsp;{this.state.age} hours ago |
-            &nbsp;<NavLink to={'/' + this.state.domain}>{this.state.num_of_comments} comments</NavLink>
+            &nbsp;<NavLink to={'/'}>{this.state.num_of_comments} comments</NavLink>
           </div>
         </div>
       </div>

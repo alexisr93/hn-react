@@ -61,7 +61,7 @@ class Story extends React.Component {
             {this.state.score} points
             by <NavLink to={'/user/' + this.state.by}>{this.state.by}</NavLink>
             &nbsp;{this.state.age} hours ago |
-            &nbsp;{this.state.num_of_comments} comments
+            &nbsp;<NavLink to={'/' + this.state.domain}>{this.state.num_of_comments} comments</NavLink>
           </div>
         </div>
       </div>

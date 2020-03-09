@@ -30,12 +30,19 @@ class UserProfile extends React.Component {
   render() {
     return (
       <div className="container-fluid">
-        <div className="container-fluid">
-          <div className="row">user: {this.state.id}</div>
-          <div className="row">created: {this.state.created}</div>
-          <div className="row">karma: {this.state.karma}</div>
-          <div className="row">about: {this.state.about}</div>
-          <div className="row"><a href="#">submissions</a></div>
+        <div className="card my-2">
+          <div className="card-body">
+            <div className="card-subtitle">
+              Profile
+            </div>
+            <div className="card-text">
+              user: {this.state.id}<br/>
+              created: {this.state.created}<br/>
+              karma: {this.state.karma}<br/>
+              about: {this.state.about}<br/>
+              <a href="#">submissions</a>
+            </div>
+          </div>
         </div>
       </div>
     );

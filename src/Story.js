@@ -15,7 +15,7 @@ class Story extends React.Component {
       by: '',
       age: '',
       num_of_comments: '',
-      link_to_comments: '',
+      kids: [],
     }
   }
 
@@ -45,6 +45,7 @@ class Story extends React.Component {
           by: data.by,
           age: Math.floor(((Date.now()/1000 - data.time) / 60) / 60),
           num_of_comments: data.descendants
+          kids: data.kids
         });
       });
   }
@@ -61,7 +62,7 @@ class Story extends React.Component {
             {this.state.score} points
             by <NavLink to={'/user/' + this.state.by}>{this.state.by}</NavLink>
             &nbsp;{this.state.age} hours ago |
-            &nbsp;<NavLink to={'/'}>{this.state.num_of_comments} comments</NavLink>
+            &nbsp;<NavLink to={'/' + this.state.id}>{this.state.num_of_comments} comments</NavLink>
           </div>
         </div>
       </div>

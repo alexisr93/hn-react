@@ -44,7 +44,7 @@ class Story extends React.Component {
           score: data.score,
           by: data.by,
           age: Math.floor(((Date.now()/1000 - data.time) / 60) / 60),
-          num_of_comments: data.descendants
+          num_of_comments: data.descendants,
           kids: data.kids
         });
       });

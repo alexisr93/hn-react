@@ -9,6 +9,7 @@ import NavBar from './NavBar.js';
 import MainBody from './MainBody';
 import UserProfile from './UserProfile';
 import PageBottomNav from './PageBottomNav';
+import StoryComments from './StoryComments';
 
 class MainBodySwitch extends React.Component {
   constructor(props) {
@@ -63,6 +64,9 @@ class MainBodySwitch extends React.Component {
           </Route>
           <Route path="/user">
             <UserProfile />
+          </Route>
+          <Route path="/storycomments">
+            <StoryComments />
           </Route>
         </Switch>
       </div>

@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Comment from './Comment';
 class StoryComments extends React.Component {
   constructor(props) {
     super(props);
@@ -28,10 +28,10 @@ class StoryComments extends React.Component {
   render() {
     let kids = []
     this.state.kids.forEach((item) => {
-     kids.push(<li> {item} </li>)
+     kids.push(<Comment id={item} />)
     })
     return (
-      <div>
+      <div className="container-fluid">
         {kids}
       </div>
     );

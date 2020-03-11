@@ -4,16 +4,40 @@ class Comment extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: '',
-      time: '',
+      id: this.props.id,
+      by: '',
+      kids: [],
       text: '',
-      replies: [],
+      time: '',
     }
+  }
+
+  componentDidMount() {
+    fetch('https://hacker-news.firebaseio.com/v0/item/' + this.state.id + '.json')
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          by: data.by,
+          kids: data.kids,
+          text: data.text,
+          time: data.time,
+        });
+      });
   }
 
   render() {
     return(
       <div>
+      <div className="card my-2">
+        <div className="card-body">
+          <div className="card-subtitle">
+            {this.state.by}
+          </div>
+          <div className="card-text text-muted">
+            {this.state.text}
+          </div>
+        </div>
+      </div>
       </div>
     );
   }

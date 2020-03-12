@@ -30,6 +30,9 @@ class UserProfile extends React.Component {
       });
   }
 
+  createMarkup() {
+    return {__html: 'about: ' + this.state.about};
+  }
   render() {
     return (
       <div className="container-fluid">
@@ -42,7 +45,7 @@ class UserProfile extends React.Component {
               user: {this.state.id}<br/>
               created: {this.state.created}<br/>
               karma: {this.state.karma}<br/>
-              about: {this.state.about}<br/>
+              <div dangerouslySetInnerHTML={this.createMarkup()} />
               <NavLink to={'/' + this.state.id}>submissions</NavLink>
             </div>
           </div>

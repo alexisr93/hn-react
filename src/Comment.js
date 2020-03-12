@@ -25,6 +25,10 @@ class Comment extends React.Component {
       });
   }
 
+  createMarkup(){
+    return {__html: this.state.text};
+  }
+  
   render() {
     return(
       <div>
@@ -33,8 +37,7 @@ class Comment extends React.Component {
           <div className="card-subtitle">
             {this.state.by}
           </div>
-          <div className="card-text text-muted">
-            {this.state.text}
+          <div className="card-text text-muted" dangerouslySetInnerHTML={this.createMarkup()}>
           </div>
         </div>
       </div>

@@ -20,7 +20,8 @@ class StoryComments extends React.Component {
           by: data.by,
           age: Math.floor(((Date.now()/1000 - data.time) / 60) / 60),
           num_of_comments: data.descendants,
-          kids: data.kids
+          kids: data.kids,
+          text: data.text,
         });
       });
   }
@@ -32,6 +33,19 @@ class StoryComments extends React.Component {
     })
     return (
       <div className="container-fluid">
+        <div className="card my-2 bg-light">
+          <div className="card-body">
+            <div className='card-title font-weight-bold'>
+              {this.state.title}
+            </div>
+            <div className='card-subtitle text-muted'>
+            {this.state.score} points
+            by {this.state.by}
+            &nbsp;{this.state.age} hours ago |
+            &nbsp;{this.state.num_of_comments} comments
+            </div>
+          </div>
+        </div>
         {kids}
       </div>
     );

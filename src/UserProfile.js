@@ -46,7 +46,7 @@ class UserProfile extends React.Component {
               created: {this.state.created}<br/>
               karma: {this.state.karma}<br/>
               <div dangerouslySetInnerHTML={this.createMarkup()} />
-              <NavLink to={'/' + this.state.id}>submissions</NavLink>
+              <NavLink to={'/submissions/' + this.state.id}>submissions</NavLink>
             </div>
           </div>
         </div>

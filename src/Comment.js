@@ -1,4 +1,7 @@
 import React from 'react';
+import {
+  NavLink,
+} from 'react-router-dom';
 
 class Comment extends React.Component {
   constructor(props) {
@@ -20,7 +23,7 @@ class Comment extends React.Component {
           by: data.by,
           kids: data.kids,
           text: data.text,
-          time: data.time,
+          age: Math.floor(((Date.now()/1000 - data.time) / 60) / 60),
         });
       });
   }
@@ -34,8 +37,8 @@ class Comment extends React.Component {
       <div>
       <div className="card my-2">
         <div className="card-body">
-          <div className="card-subtitle">
-            {this.state.by}
+          <div className="card-subtitle text-muted">
+            <NavLink to={'/user/' + this.state.by}>{this.state.by}</NavLink> {this.state.age} hours ago
           </div>
           <div className="card-text text-muted" dangerouslySetInnerHTML={this.createMarkup()}>
           </div>

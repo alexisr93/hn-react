@@ -9,6 +9,7 @@ class Submissions extends React.Component {
       submissions: [],
     }
   }
+  
   componentDidMount() {
     fetch('https://hacker-news.firebaseio.com/v0/user/' + this.state.id + '.json')
       .then(res => res.json())

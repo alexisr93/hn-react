@@ -33,6 +33,7 @@ class UserProfile extends React.Component {
   createMarkup() {
     return {__html: 'about: ' + this.state.about};
   }
+  
   render() {
     return (
       <div className="container-fluid">

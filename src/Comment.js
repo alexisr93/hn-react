@@ -28,7 +28,7 @@ class Comment extends React.Component {
   createMarkup(){
     return {__html: this.state.text};
   }
-  
+
   render() {
     return(
       <div>
